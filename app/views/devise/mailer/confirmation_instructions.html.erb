@@ -1,0 +1,5 @@
+<p>Welcome <%= @name %>!</p>
+
+<p>Hey Dude, Welcome to readsup. Confirm your email to get started</p>
+
+<p><%= link_to 'Confirm my account', confirmation_url(@resource, {confirmation_token: @token, config: message['client-config'].to_s, redirect_url: message['redirect-url']}).html_safe %></p>
