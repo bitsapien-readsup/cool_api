@@ -1,12 +1,10 @@
 source 'https://rubygems.org'
 
-
 gem 'rails', '4.2.5'
 
 gem 'rails-api'
 
 gem 'spring', :group => :development
-
 
 gem 'sqlite3'
 
@@ -22,8 +20,18 @@ gem 'active_model_serializers'
 
 gem 'pg'
 
+#Use Puma as application server, it supports high concurrency
+#Consider a comparsion woth Passenger before going live. It's 5.0 seems good
+gem 'puma'
 
-
+# Deploy with Capistrano
+group :development do
+  gem 'capistrano'
+  gem 'capistrano3-puma'
+  gem 'capistrano-rails', require: false
+  gem 'capistrano-bundler', require: false
+  gem 'capistrano-rvm'
+end
 
 
 # To use ActiveModel has_secure_password
@@ -34,9 +42,6 @@ gem 'pg'
 
 # Use unicorn as the app server
 # gem 'unicorn'
-
-# Deploy with Capistrano
-# gem 'capistrano', :group => :development
 
 # To use debugger
 # gem 'ruby-debug19', :require => 'ruby-debug'
